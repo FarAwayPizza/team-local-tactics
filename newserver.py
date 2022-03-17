@@ -57,16 +57,11 @@ def print_available_champs(champions: dict[Champion], sock) -> None:
     # Populate the table
     for champion in champions.values():
         available_champs.add_row(*champion.str_tuple)
-    
-    #HER!
 
-    #packet = {"Table": available_champs}
     packet = {"data":champions, "command": "Print Champions"}
     packet = json.dumps(packet)
     print(packet)
-    #sock.send(packetOfChamps.encode())
     sock.sendall(bytes(packet, encoding="utf-8"))
-    #print(available_champs)
 
 
 def input_champion(prompt: str,
@@ -74,9 +69,6 @@ def input_champion(prompt: str,
                    champions: dict[Champion],
                    player1: list[str],
                    player2: list[str]) -> None:
-
-    # Prompt the player to choose a champion and provide the reason why
-    # certain champion cannot be selected
     while True:
         match Prompt.ask(f'[{color}]{prompt}'):
             case name if name not in champions:
@@ -150,23 +142,6 @@ def read(conn1, conn2, champs):
 
     return (teamOne, teamTwo)
 
-    '''
-    teamOnechamps = []
-    teamTwochamps = []
-
-    for name in teamOne:
-        for champ in champs:
-            if champ["name"] == name:
-                teamOnechamps.append(_parse_champ(champ))
-
-    for name in teamTwo:
-        for champ in champs:
-            if champ["name"] == name:
-                teamTwochamps.append(_parse_champ(champ))
-
-    return (teamOnechamps, teamTwochamps)        
-    '''
-   
 
 #def main(sock) -> None:
 def main(sock):
@@ -182,37 +157,16 @@ def main(sock):
         player1Adresse = adress1
         player2Adresse = adress2
 
-        #print('You are player1', conn1, 'from', address1)
-        #print('You are player2', conn2, 'from', address2)
-        #name: str,
-                 #rock: float = 1,
-                 #paper: float = 1,
-                 #scissors: float 
-
-        #Thread(target=read, args=(conn1, conn2)).start()
-
-
-        #print_available_champs(champions, sock)
         print('\n')
-
-
-        #packet = {"data": champions}
-        #packet = {"data":champions, "command": "Print Champions"}
-
-        # Henta fra fil med jason, unpacke og sende til client
-        
 
         champsList = recieving()
 
 
         packetOfChamps = json.dumps(champsList)
         conn1.send(packetOfChamps.encode())
-        #conn1.sendall(bytes(packetOfChamps,encoding="utf-8"))
-
+   
         conn2.send(packetOfChamps.encode())
-        #conn2.sendall(bytes(packetOfChamps,encoding="utf-8"))
-
-
+        
         player1, player2 = read(conn1, conn2, packetOfChamps)
 
         champions = from_json()
@@ -226,7 +180,6 @@ def main(sock):
         match.play()
 
         matchPickle = pickle.dumps(match)
-        
 
         conn1.send(matchPickle)
         conn2.send(matchPickle)  
