@@ -1,0 +1,28 @@
+[
+    {
+        "name": "vain",
+        "probs1": 50,
+        "probs2": 25,
+        "probs3": 25
+    },
+    {
+        "name": "dr.yi",
+        "probs1": 10,
+        "probs2": 10,
+        "probs3": 80
+    },
+    {
+        "name": "twist",
+        "probs1": 10,
+        "probs2": 25,
+        "probs3": 65
+    },
+    {
+        "name": "guan",
+        "probs1": 30,
+        "probs2": 35,
+        "probs3": 35
+    }
+    ]
+
+    
