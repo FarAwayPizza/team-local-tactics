@@ -22,6 +22,36 @@
         "probs1": 30,
         "probs2": 35,
         "probs3": 35
+    },
+    {
+        "name": "siva",
+        "probs1": 60,
+        "probs2": 20,
+        "probs3": 20
+    },
+    {
+        "name": "katina",
+        "probs1": 20,
+        "probs2": 50,
+        "probs3": 30
+    },
+    {
+        "name": "asir",
+        "probs1": 5,
+        "probs2": 5,
+        "probs3": 90
+    },
+    {
+        "name": "cactus",
+        "probs1": 5,
+        "probs2": 90,
+        "probs3": 5
+    },
+    {
+        "name": "Luanne",
+        "probs1": 90,
+        "probs2": 5,
+        "probs3": 5
     }
     ]
 

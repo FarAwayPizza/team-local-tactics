@@ -2,7 +2,6 @@ from rich import print
 from rich.prompt import Prompt
 from rich.table import Table
 
-from champlistloader import load_some_champs
 from core import Champion, Match, Shape, Team
 
 
