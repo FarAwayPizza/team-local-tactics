@@ -48,38 +48,15 @@ def print_match_summary(match: Match) -> None:
         print('\n[blue]Blue victory! :grin:')
     else:
         print('\nDraw :expressionless:')
-
-'''
-
-def print_available_champs(champions):
-
-    # Create a table containing available champions
-    available_champs = Table(title='Available champions')
-
-    # Add the columns Name, probability of rock, probability of paper and
-    # probability of scissors
-    available_champs.add_column("Name", style="cyan", no_wrap=True)
-    available_champs.add_column("prob(:raised_fist-emoji:)", justify="center")
-    available_champs.add_column("prob(:raised_hand-emoji:)", justify="center")
-    available_champs.add_column("prob(:victory_hand-emoji:)", justify="center")
-
-    # Populate the table
-    for champion in champions.values():
-        available_champs.add_row(*champion.str_tuple)
-
-    print(available_champs)
-    #HER
-    '''
-
     
 
 def chosingCaracter(navnListe):
 
     while True:
-        championName = input("Choose a champion:").lower()
+        championName = input("Choose a champion: ").lower()
 
         if championName in navnListe:
-            print("you have chosen" + championName)
+            print("you have chosen " + championName)
             navnListe.remove(championName)
             return championName
             
@@ -95,7 +72,7 @@ def motta(socket):
     print(translated)
 
     navnListe = [champ["name"] for champ in translated] 
-    print(navnListe)
+    #print(navnListe)
 
     champ1 = chosingCaracter(navnListe)
     champ2 = chosingCaracter(navnListe)
@@ -111,18 +88,7 @@ with socket()as sock:
  
     server_address = ("localhost", 5555)
     sock.connect(server_address)
-    '''
-    sentence = input("Melding: ")
-
-    sock.send(sentence.encode())
-    colour = sock.recv(1024).decode()
-
-
-    print(f"From Server: {colour}")
-    #sock.close()
-
-    '''
-
+    
     motta(sock)
 
     recieved = sock.recv(4096)  

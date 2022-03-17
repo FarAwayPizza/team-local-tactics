@@ -226,28 +226,12 @@ def main(sock):
         match.play()
 
         matchPickle = pickle.dumps(match)
-
-        conn1.send(matchPickle)
-        conn2.send(matchPickle)
-      
-
-
-
-
-
-
-
-
         
 
-
+        conn1.send(matchPickle)
+        conn2.send(matchPickle)  
 
 
 if __name__ == '__main__':
     with socket() as sock:
         main(sock)
-
-
-# Split navn og spillet henter tall verdien til karakterene
-# bruke match til å kjøre core til å kjøre spillet
-# Se hvordan team local tactics kjører spilelt
